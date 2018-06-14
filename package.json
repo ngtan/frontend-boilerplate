@@ -1,0 +1,27 @@
+{
+  "name": "frontend-boilerplate",
+  "version": "1.0.0",
+  "description": "Make the development process as fast as possible",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngtan/frontend-boilerplate.git"
+  },
+  "author": "Tan Nguyen <tannd1993@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngtan/frontend-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ngtan/frontend-boilerplate#readme",
+  "dependencies": {
+    "babel-polyfill": "6.26.0",
+    "modernizr": "3.6.0",
+    "normalize.css": "8.0.0"
+  },
+  "devDependencies": {
+    "webpack": "4.12.0"
+  }
+}
