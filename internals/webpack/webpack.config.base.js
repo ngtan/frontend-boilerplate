@@ -40,6 +40,10 @@ module.exports = (options) => ({
         },
       },
       {
+        test: /\.modernizrrc$/,
+        use: ['modernizr-loader', 'json-loader'],
+      },
+      {
         test: /\.(eot|svg|otf|ttf|woff2?)$/,
         use: 'file-loader',
       },
@@ -71,6 +75,10 @@ module.exports = (options) => ({
       path.resolve(process.cwd(), 'app'),
       'node_modules',
     ],
+
+    alias: {
+      modernizr$: path.resolve(process.cwd(), '.modernizrrc'),
+    },
   },
 
   devServer: {
