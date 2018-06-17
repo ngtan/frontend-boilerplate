@@ -82,6 +82,9 @@ module.exports = (options) => ({
   },
 
   devServer: {
+    hot: true,
+    inline: true,
+    contentBase: path.resolve(process.cwd(), 'public'),
     compress: true,
     host: '0.0.0.0',
     port: process.env.PORT || 3000,

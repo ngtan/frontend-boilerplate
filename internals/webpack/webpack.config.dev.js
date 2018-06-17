@@ -13,7 +13,10 @@ module.exports = require('./webpack.config.base')({
     chunkFilename: '[name].chunk.js',
   },
 
-  plugins: [],
+  plugins: [
+    // enables Hot Modules Replacement
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 
   pugQuery: {
     pretty: true,
