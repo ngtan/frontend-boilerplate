@@ -58,7 +58,7 @@ module.exports = (options) => ({
             loader: 'url-loader',
             options: {
               limit: 2000,
-              name: 'public/image/[name].' + (options.mode === 'development' ? '' : '[hash:7].') + '[ext]',
+              name: 'public/images/[name].' + (options.mode === 'development' ? '' : '[hash:7].') + '[ext]',
             },
           }
         ],
