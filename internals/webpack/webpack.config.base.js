@@ -49,8 +49,14 @@ module.exports = (options) => ({
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        use: [
-          'file-loader',
+        loaders: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 2000,
+              name: 'public/image/[name].' + (options.mode === 'development' ? '' : '[hash:7].') + '[ext]',
+            },
+          }
         ],
       },
       {
