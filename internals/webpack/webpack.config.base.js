@@ -1,10 +1,8 @@
-const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (options) => ({
+module.exports = options => ({
   mode: options.mode,
 
   entry: options.entry,
@@ -13,6 +11,8 @@ module.exports = (options) => ({
     path: path.resolve(process.cwd(), 'public'),
     publicPath: '/',
   }, options.output),
+
+  optimization: options.optimization,
 
   module: {
     rules: [
@@ -48,7 +48,7 @@ module.exports = (options) => ({
         include: path.resolve(process.cwd(), 'app/static/fonts'),
         loader: 'file-loader',
         options: {
-          name: 'public/fonts/[name].' + (options.mode === 'development' ? '' : '[hash:7].') + '[ext]',
+          name: `public/fonts/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
         },
       },
       {
@@ -58,9 +58,9 @@ module.exports = (options) => ({
             loader: 'url-loader',
             options: {
               limit: 2000,
-              name: 'public/images/[name].' + (options.mode === 'development' ? '' : '[hash:7].') + '[ext]',
+              name: `public/images/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
             },
-          }
+          },
         ],
       },
       {
@@ -71,13 +71,11 @@ module.exports = (options) => ({
   },
 
   plugins: options.plugins.concat([
-    ...glob.sync(path.resolve(process.cwd(), 'app/pages/**/*.pug')).map(file => {
-      return new HtmlWebpackPlugin({
-        filename: file.split('/').pop().toLowerCase().replace(/\.pug$/, '.html'),
-        template: file,
-        inject: false,
-      });
-    }),
+    ...glob.sync(path.resolve(process.cwd(), 'app/pages/**/*.pug')).map(file => new HtmlWebpackPlugin({
+      filename: file.split('/').pop().toLowerCase().replace(/\.pug$/, '.html'),
+      template: file,
+      inject: false,
+    })),
   ]),
 
   resolve: {
@@ -100,5 +98,7 @@ module.exports = (options) => ({
     port: process.env.PORT || 3000,
   },
 
-  devtool: 'eval-source-map',
+  devtool: options.devtool,
+
+  performance: options.performance || {},
 });

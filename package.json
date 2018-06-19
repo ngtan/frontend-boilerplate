@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config ./internals/webpack/webpack.config.dev.js",
+    "build": "webpack --config ./internals/webpack/webpack.config.prod.js --color -p --progress --hide-modules --display-optimization-bailout",
     "lint:js": "eslint --ignore-path .gitignore .",
     "lint:css": "stylelint \"./app/**/*.scss\"",
     "test": "echo \"Error: no test specified\" && exit 1"
