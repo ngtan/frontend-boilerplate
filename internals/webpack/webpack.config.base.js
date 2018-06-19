@@ -21,7 +21,10 @@ module.exports = options => ({
         include: path.resolve(process.cwd(), 'app'),
         use: {
           loader: 'pug-loader',
-          options: options.pugQuery,
+          options: {
+            pretty: true,
+            self: true,
+          },
         },
       },
       {
@@ -74,7 +77,7 @@ module.exports = options => ({
     ...glob.sync(path.resolve(process.cwd(), 'app/pages/**/*.pug')).map(file => new HtmlWebpackPlugin({
       filename: file.split('/').pop().toLowerCase().replace(/\.pug$/, '.html'),
       template: file,
-      inject: false,
+      inject: true,
     })),
   ]),
 
@@ -92,7 +95,8 @@ module.exports = options => ({
   devServer: {
     hot: true,
     inline: true,
-    contentBase: path.resolve(process.cwd(), 'public'),
+    contentBase: path.resolve(process.cwd(), 'app'),
+    watchContentBase: true,
     compress: true,
     host: '0.0.0.0',
     port: process.env.PORT || 3000,

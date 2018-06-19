@@ -27,8 +27,4 @@ module.exports = require('./webpack.config.base')({
   performance: {
     hints: false,
   },
-
-  pugQuery: {
-    pretty: true,
-  },
 });
