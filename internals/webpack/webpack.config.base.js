@@ -51,7 +51,7 @@ module.exports = options => ({
         include: path.resolve(process.cwd(), 'app/static/fonts'),
         loader: 'file-loader',
         options: {
-          name: `public/fonts/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
+          name: `fonts/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
         },
       },
       {
@@ -61,7 +61,7 @@ module.exports = options => ({
             loader: 'url-loader',
             options: {
               limit: 2000,
-              name: `public/images/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
+              name: `images/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
             },
           },
         ],
