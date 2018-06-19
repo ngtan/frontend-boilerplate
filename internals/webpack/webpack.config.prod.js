@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = require('./webpack.config.base')({
   mode: 'production',
@@ -9,8 +8,12 @@ module.exports = require('./webpack.config.base')({
   ],
 
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].chunk.js',
+  },
+
+  optimization: {
+    minimize: true,
   },
 
   plugins: [],
