@@ -22,8 +22,7 @@
   "homepage": "https://github.com/ngtan/frontend-boilerplate#readme",
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "modernizr": "3.6.0",
-    "normalize.css": "8.0.0"
+    "modernizr": "3.6.0"
   },
   "devDependencies": {
     "babel-core": "6.26.3",

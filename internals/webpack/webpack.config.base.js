@@ -102,7 +102,7 @@ module.exports = options => ({
           {
             loader: 'url-loader',
             options: {
-              limit: 2000,
+              limit: 10 * 1024,
               name: `images/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
             },
           },
