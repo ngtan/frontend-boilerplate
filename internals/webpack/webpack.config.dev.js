@@ -6,6 +6,7 @@ module.exports = require('./webpack.config.base')({
 
   entry: [
     path.join(process.cwd(), '/app/bootstrap.js'),
+    path.join(process.cwd(), '/app/styles/main.scss'),
   ],
 
   output: {
