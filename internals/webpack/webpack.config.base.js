@@ -68,7 +68,9 @@ module.exports = options => ({
       },
       {
         test: /\.json$/,
-        use: 'json-loader',
+        use: {
+          loader: 'json-loader',
+        },
       },
     ],
   },
