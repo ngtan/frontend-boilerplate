@@ -47,10 +47,11 @@ module.exports = options => ({
       },
       {
         test: /\.(eot|svg|otf|ttf|woff2?)$/,
-        include: path.resolve(process.cwd(), 'app/static/fonts'),
-        loader: 'file-loader',
-        options: {
-          name: `fonts/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: `fonts/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
+          },
         },
       },
       {
