@@ -18,7 +18,6 @@ module.exports = options => ({
     rules: [
       {
         test: /\.pug$/,
-        include: path.resolve(process.cwd(), 'app'),
         use: {
           loader: 'pug-loader',
           options: {
