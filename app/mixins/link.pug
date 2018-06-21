@@ -1,0 +1,10 @@
+mixin link(href, title, text)
+  - if (typeof href === 'undefined') href = 'javascript:void(0)'
+  - if (typeof title === 'undefined') title = 'This is a default title'
+  - if (typeof text === 'undefined') text = 'This is a default text'
+
+  a(href=href, title=title)&attributes(attributes)
+    if block
+      block
+    else
+      != text
