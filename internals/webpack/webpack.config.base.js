@@ -40,7 +40,7 @@ module.exports = options => ({
                 minimize: options.mode !== 'development',
               },
             },
-          ]
+          ],
         }),
       },
       {
@@ -70,8 +70,7 @@ module.exports = options => ({
               },
             },
           ],
-        }
-        ),
+        }),
       },
       {
         test: /\.js$/,
@@ -104,6 +103,24 @@ module.exports = options => ({
             options: {
               limit: 10 * 1024,
               name: `images/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                enabled: false,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              optipng: {
+                optimizationLevel: 7,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4,
+              },
             },
           },
         ],
