@@ -1,0 +1,15 @@
+// convert a pixel value to rem, based on the default pixel size
+// @param {Number} $pixel
+// @param {Number} $base-font-size
+// @return {String}
+@function px2rem($pixel, $base-font-size) {
+  @if (unitless($pixel)) {
+    @return px2rem($pixel * 1px, $base-font-size);
+  }
+
+  @if (unitless($base-font-size)) {
+    @return px2rem($pixel, $base-font-size * 1px);
+  }
+
+  @return ($pixel / $base-font-size) * 1rem;
+}
