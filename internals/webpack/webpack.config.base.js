@@ -2,6 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = options => ({
   mode: options.mode,
@@ -60,7 +61,9 @@ module.exports = options => ({
               loader: 'postcss-loader',
               options: {
                 sourceMap: true,
-                plugins: [],
+                plugins: [
+                  autoprefixer,
+                ],
               },
             },
             {
