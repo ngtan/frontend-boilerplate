@@ -60,7 +60,9 @@ module.exports = options => ({
               loader: 'postcss-loader',
               options: {
                 sourceMap: true,
-                plugins: [],
+                plugins: [
+                  require('autoprefixer'),
+                ],
               },
             },
             {
