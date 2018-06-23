@@ -1,0 +1,4 @@
+# Test Browserslist queries in online demo: http://browserl.ist/
+# Browsers that are supported
+IE >= 9
+last 2 versions
