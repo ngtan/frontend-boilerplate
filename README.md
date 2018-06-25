@@ -4,3 +4,21 @@
 
 # frontend-boilerplate
 Make the development process as fast as possible
+
+## Requirements
+  - nodejs
+  - yarn / npm
+
+## Getting started
+- Clone this repository and make it yours
+  ```
+    git clone --depth=1 https://github.com/ngtan/frontend-boilerplate.git
+    cd frontend-boilerplate
+    rm -rf .git/
+  ```
+
+- Install dependencies:
+  `yarn` or `npm install`
+
+- Start developing
+  `yarn dev` or `npm run dev`
