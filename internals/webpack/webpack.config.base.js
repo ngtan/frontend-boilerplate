@@ -1,8 +1,48 @@
 const path = require('path');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+
+const getStyleRules = (options) => {
+  const cssRules = [
+    {
+      loader: 'css-loader',
+      options: {
+        sourceMap: true,
+        minimize: options.mode !== 'development',
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        sourceMap: true,
+        plugins: [
+          autoprefixer,
+        ],
+      },
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: true,
+      },
+    },
+  ];
+
+  if (options.mode === 'development') {
+    cssRules.unshift({
+      loader: 'style-loader',
+      options: {
+        sourceMap: true,
+      },
+    });
+  } else {
+    cssRules.unshift(MiniCssExtractPlugin.loader);
+  }
+
+  return cssRules;
+};
 
 module.exports = options => ({
   mode: options.mode,
@@ -29,51 +69,9 @@ module.exports = options => ({
         },
       },
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-                minimize: options.mode !== 'development',
-              },
-            },
-          ],
-        }),
-      },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-                minimize: options.mode !== 'development',
-              },
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                plugins: [
-                  autoprefixer,
-                ],
-              },
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true,
-              },
-            },
-          ],
-        }),
+        use: getStyleRules(options),
       },
       {
         test: /\.js$/,
@@ -100,7 +98,7 @@ module.exports = options => ({
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        loaders: [
+        use: [
           {
             loader: 'url-loader',
             options: {
@@ -144,7 +142,10 @@ module.exports = options => ({
       inject: true,
     })),
 
-    new ExtractTextPlugin(`[name].${(options.mode === 'development' ? '' : '[hash:7].')}css`),
+    new MiniCssExtractPlugin({
+      filename: `[name].${(options.mode === 'development' ? '' : '[hash:7].')}css`,
+      chunkFilename: `[id].${(options.mode === 'development' ? '' : '[hash:7].')}css`,
+    }),
   ]),
 
   resolve: {
