@@ -44,6 +44,29 @@ const getStyleRules = (options) => {
   return cssRules;
 };
 
+const getHtmlPlugin = (options) => {
+  const minify = options.mode === 'development' ? false : {
+    removeComments: true,
+    collapseWhitespace: true,
+    removeRedundantAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    keepClosingSlash: true,
+    minifyJS: true,
+    minifyCSS: true,
+    minifyURLs: true,
+  };
+  const pages = glob.sync(path.resolve(process.cwd(), 'app/pages/**/*.pug'));
+
+  return pages.map(page => new HtmlWebpackPlugin({
+    filename: page.split('/').pop().toLowerCase().replace(/\.pug$/, '.html'),
+    template: page,
+    inject: true,
+    minify,
+  }));
+};
+
 module.exports = options => ({
   mode: options.mode,
 
@@ -136,11 +159,7 @@ module.exports = options => ({
   },
 
   plugins: options.plugins.concat([
-    ...glob.sync(path.resolve(process.cwd(), 'app/pages/**/*.pug')).map(file => new HtmlWebpackPlugin({
-      filename: file.split('/').pop().toLowerCase().replace(/\.pug$/, '.html'),
-      template: file,
-      inject: true,
-    })),
+    ...getHtmlPlugin(options),
 
     new MiniCssExtractPlugin({
       filename: `[name].${(options.mode === 'development' ? '' : '[hash:7].')}css`,
