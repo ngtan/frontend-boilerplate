@@ -160,9 +160,6 @@ module.exports = options => ({
   },
 
   devServer: {
-    hot: true,
-    inline: true,
-    contentBase: path.resolve(process.cwd(), 'app'),
     watchContentBase: true,
     compress: true,
     host: '0.0.0.0',
