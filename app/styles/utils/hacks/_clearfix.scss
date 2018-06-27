@@ -1,4 +1,5 @@
 /* From: https://css-tricks.com/snippets/css/clear-fix/ */
+/* stylelint-disable */
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -12,3 +13,4 @@
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* close commented backslash hack */
+/* stylelint-enable */
