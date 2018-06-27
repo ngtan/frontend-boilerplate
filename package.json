@@ -8,7 +8,7 @@
     "build": "webpack --config ./internals/webpack/webpack.config.prod.js --color -p --progress --hide-modules --display-optimization-bailout",
     "lint:js": "eslint --ignore-path .gitignore .",
     "lint:css": "stylelint \"./app/**/*.scss\"",
-    "test": "npm run lint:js"
+    "test": "npm run lint:js && npm run lint:css"
   },
   "repository": {
     "type": "git",
