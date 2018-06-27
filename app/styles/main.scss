@@ -6,3 +6,7 @@
 // Variables
 @import 'variables/breakpoints';
 @import 'variables/colors';
+
+// Utilities
+@import 'utils/mixins/keyframes';
+@import 'utils/hacks/clearfix';
