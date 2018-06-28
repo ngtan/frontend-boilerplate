@@ -1,0 +1,5 @@
+mixin img(src, alt)
+  - if (typeof src === "undefined") src = "default.png"
+  - if (typeof alt === "undefined") alt = "This is a default image"
+
+  img(src=require(`@images/${src}`), alt=alt)&attributes(attributes)
