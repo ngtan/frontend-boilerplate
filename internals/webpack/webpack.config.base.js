@@ -155,6 +155,16 @@ module.exports = options => ({
           loader: 'json-loader',
         },
       },
+      {
+        test: /\.(mp3|mp4|webm|ogg|wav)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: `media/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
+          },
+        },
+      },
     ],
   },
 
