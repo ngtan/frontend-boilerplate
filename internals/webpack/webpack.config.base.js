@@ -175,6 +175,7 @@ module.exports = options => ({
 
     alias: {
       modernizr$: path.resolve(process.cwd(), '.modernizrrc'),
+      '@images': path.resolve(process.cwd(), 'app/images'),
     },
   },
 
