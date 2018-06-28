@@ -5,6 +5,8 @@
 # frontend-boilerplate
 Make the development process as fast as possible
 
+Heavily inspired from [React boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+
 ## Requirements
   - nodejs
   - yarn / npm
@@ -15,6 +17,7 @@ Make the development process as fast as possible
     git clone --depth=1 https://github.com/ngtan/frontend-boilerplate.git
     cd frontend-boilerplate
     rm -rf .git/
+    git init
   ```
 
 - Install dependencies:
@@ -22,3 +25,9 @@ Make the development process as fast as possible
 
 - Start developing
   `yarn dev` or `npm run dev`
+
+## Contributing
+Contributions, questions and comments are all welcome and encouraged
+
+## License
+This project is licensed under the MIT License
