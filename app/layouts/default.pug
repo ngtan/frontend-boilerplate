@@ -16,14 +16,14 @@ html(lang="en")
 
     // iOS home screen icons
     meta(name="apple-mobile-web-app-title", content="frontend boilerplate")
-    link(rel="apple-touch-icon", sizes="120x120", href="/icon-120x120.png")
-    link(rel="apple-touch-icon", sizes="152x152", href="/icon-152x152.png")
-    link(rel="apple-touch-icon", sizes="167x167", href="/icon-167x167.png")
-    link(rel="apple-touch-icon", sizes="180x180", href="/icon-180x180.png")
+    link(rel="apple-touch-icon", sizes="120x120", href=require("@images/icon-120x120.png"))
+    link(rel="apple-touch-icon", sizes="152x152", href=require("@images/icon-152x152.png"))
+    link(rel="apple-touch-icon", sizes="167x167", href=require("@images/icon-167x167.png"))
+    link(rel="apple-touch-icon", sizes="180x180", href=require("@images/icon-180x180.png"))
 
     // favicon
-    link(rel="icon", type="image/png", sizes="16x16", href="/favicon-16x16.png")
-    link(rel="shortcut icon", type="image/png", sizes="16x16", href="/favicon-16x16.png")
+    link(rel="icon", type="image/png", sizes="16x16", href=require("@images/favicon-16x16.png"))
+    link(rel="shortcut icon", type="image/png", sizes="16x16", href=require("@images/favicon-16x16.png"))
 
     title= title
   body(class=bodyClass)
