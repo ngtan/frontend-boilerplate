@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = require('./webpack.config.base')({
   mode: 'production',
@@ -17,5 +18,9 @@ module.exports = require('./webpack.config.base')({
     minimize: true,
   },
 
-  plugins: [],
+  plugins: [
+    new CleanWebpackPlugin([
+      path.resolve(process.cwd(), 'public'),
+    ], { allowExternal: true }),
+  ],
 });
