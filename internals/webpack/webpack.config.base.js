@@ -67,10 +67,16 @@ const getHtmlPlugin = (options) => {
   }));
 };
 
+const getScripts = () => glob.sync(path.resolve(process.cwd(), 'app/components/**/*.js'));
+
 module.exports = options => ({
   mode: options.mode,
 
-  entry: options.entry,
+  entry: [
+    path.join(process.cwd(), '/app/app.js'),
+    ...getScripts(),
+    path.join(process.cwd(), '/app/styles/main.scss'),
+  ],
 
   output: Object.assign({
     path: path.resolve(process.cwd(), 'public'),
