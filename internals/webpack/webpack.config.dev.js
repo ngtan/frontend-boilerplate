@@ -4,11 +4,6 @@ const webpack = require('webpack');
 module.exports = require('./webpack.config.base')({
   mode: 'development',
 
-  entry: [
-    path.join(process.cwd(), '/app/app.js'),
-    path.join(process.cwd(), '/app/styles/main.scss'),
-  ],
-
   output: {
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
