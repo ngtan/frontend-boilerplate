@@ -27,7 +27,7 @@ Heavily inspired from [React boilerplate](https://github.com/react-boilerplate/r
   `yarn dev` or `npm run dev`
 
 ## Contributing
-Contributions, questions and comments are all welcome and encouraged
+Questions, comments, bug reports and feature requests are all welcome and encouraged.
 
 ## License
-This project is licensed under the MIT License
+This project is licensed under the [MIT License](https://github.com/ngtan/frontend-boilerplate/blob/master/LICENSE)
