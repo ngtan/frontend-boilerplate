@@ -67,9 +67,7 @@ const getHtmlPlugin = (options) => {
   }));
 };
 
-const getScripts = () => {
-  return glob.sync(path.resolve(process.cwd(), 'app/components/**/*.js'));
-};
+const getScripts = () => glob.sync(path.resolve(process.cwd(), 'app/components/**/*.js'));
 
 module.exports = options => ({
   mode: options.mode,
