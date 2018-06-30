@@ -171,6 +171,12 @@ module.exports = options => ({
           },
         },
       },
+      {
+        test: /\.svg$/,
+        use: {
+          loader: 'svg-inline-loader',
+        },
+      },
     ],
   },
 
