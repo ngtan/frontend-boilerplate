@@ -29,6 +29,6 @@ module.exports = require('./webpack.config.base')({
           sizes: [72, 96, 120, 128, 144, 152, 167, 180, 192, 384, 512],
         },
       ],
-    })
+    }),
   ],
 });
