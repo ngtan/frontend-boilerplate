@@ -11,6 +11,9 @@ Heavily inspired from [React boilerplate](https://github.com/react-boilerplate/r
   - nodejs
   - yarn / npm
 
+## Browsers are supported
+[Compatible browsers](http://browserl.ist/?q=IE+%3E%3D+9%2C+last+2+versions)
+
 ## Getting started
 - Clone this repository and make it yours
   ```
