@@ -70,6 +70,8 @@ const getHtmlPlugin = (options) => {
 
 const getScripts = () => glob.sync(path.resolve(process.cwd(), 'app/components/**/*.js'));
 
+const getStyles = () => glob.sync(path.resolve(process.cwd(), 'app/components/**/*.scss'));
+
 module.exports = options => ({
   mode: options.mode,
 
@@ -77,6 +79,7 @@ module.exports = options => ({
     path.join(process.cwd(), '/app/app.js'),
     ...getScripts(),
     path.join(process.cwd(), '/app/styles/main.scss'),
+    ...getStyles(),
   ],
 
   output: Object.assign({
