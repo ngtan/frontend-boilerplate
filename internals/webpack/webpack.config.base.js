@@ -3,6 +3,7 @@ const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 const getStyleRules = (options) => {
   const cssRules = [
@@ -186,6 +187,11 @@ module.exports = options => ({
     new MiniCssExtractPlugin({
       filename: `[name].${(options.mode === 'development' ? '' : '[hash:7].')}css`,
       chunkFilename: `[id].${(options.mode === 'development' ? '' : '[hash:7].')}css`,
+    }),
+
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
     }),
   ]),
 
