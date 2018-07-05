@@ -5,6 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 
+const resolvePath = (segment) => path.resolve(process.cwd(), segment);
+const getFiles = (segment) => glob.sync(resolvePath(segment));
+
 const getStyleRules = (options) => {
   const cssRules = [
     {
@@ -58,7 +61,7 @@ const getHtmlPlugin = (options) => {
     minifyCSS: true,
     minifyURLs: true,
   };
-  const pages = glob.sync(path.resolve(process.cwd(), 'app/pages/**/*.pug'));
+  const pages = glob.sync(resolvePath('app/pages/**/*.pug'));
 
   return pages.map(page => new HtmlWebpackPlugin({
     filename: page.split('/').pop().toLowerCase().replace(/\.pug$/, '.html'),
@@ -68,9 +71,8 @@ const getHtmlPlugin = (options) => {
   }));
 };
 
-const getScripts = () => glob.sync(path.resolve(process.cwd(), 'app/components/**/*.js'));
-
-const getStyles = () => glob.sync(path.resolve(process.cwd(), 'app/components/**/*.scss'));
+const getScripts = () => getFiles('app/components/**/*.js');
+const getStyles = () => getFiles('app/components/**/*.scss');
 
 module.exports = options => ({
   mode: options.mode,
@@ -83,7 +85,7 @@ module.exports = options => ({
   ],
 
   output: Object.assign({
-    path: path.resolve(process.cwd(), 'public'),
+    path: resolvePath('public'),
     publicPath: '/',
   }, options.output),
 
@@ -200,13 +202,13 @@ module.exports = options => ({
 
   resolve: {
     modules: [
-      path.resolve(process.cwd(), 'app'),
+      resolvePath('app'),
       'node_modules',
     ],
 
     alias: {
-      modernizr$: path.resolve(process.cwd(), '.modernizrrc'),
-      '@images': path.resolve(process.cwd(), 'app/images'),
+      modernizr$: resolvePath('.modernizrrc'),
+      '@images': resolvePath('app/images'),
     },
   },
 
