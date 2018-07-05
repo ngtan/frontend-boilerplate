@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 
-const resolvePath = (segment) => path.resolve(process.cwd(), segment);
-const getFiles = (segment) => glob.sync(resolvePath(segment));
+const resolvePath = segment => path.resolve(process.cwd(), segment);
+const getFiles = segment => glob.sync(resolvePath(segment));
 
 const getStyleRules = (options) => {
   const cssRules = [
