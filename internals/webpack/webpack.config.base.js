@@ -123,7 +123,7 @@ module.exports = options => ({
         use: ['modernizr-loader', 'json-loader'],
       },
       {
-        test: /\.(eot|svg|otf|ttf|woff2?)$/,
+        test: /\.(eot|otf|ttf|woff2?)$/,
         use: {
           loader: 'file-loader',
           options: {
@@ -132,12 +132,11 @@ module.exports = options => ({
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              limit: 10 * 1024,
               name: `images/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
             },
           },
@@ -170,17 +169,10 @@ module.exports = options => ({
       {
         test: /\.(mp3|mp4|webm|ogg|wav)$/,
         use: {
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            limit: 10000,
             name: `media/[name].${(options.mode === 'development' ? '' : '[hash:7].')}[ext]`,
           },
-        },
-      },
-      {
-        test: /\.svg$/,
-        use: {
-          loader: 'svg-inline-loader',
         },
       },
     ],
