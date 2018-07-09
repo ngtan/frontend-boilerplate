@@ -23,6 +23,7 @@ module.exports = require('./webpack.config.base')({
       name: 'frontend boilerplate',
       short_name: 'fe boilerplate',
       description: 'Make the development process as fast as possible',
+      fingerprints: false,
       icons: [
         {
           src: path.resolve('app/images/icon-512x512.png'),
