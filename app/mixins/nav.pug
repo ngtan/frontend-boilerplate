@@ -1,0 +1,7 @@
+mixin nav(items, navClass)
+  ul(class=navClass)
+    each item in items
+      li(class=item.itemClass)
+        +link(item.href, item.title, item.text)(class=item.linkClass)
+        if (typeof (item.children) !== 'undefined')
+          +nav(item.children, item.navClass)
