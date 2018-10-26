@@ -1,4 +1,9 @@
 language: node_js
 
 node_js:
-  - "stable"
+  - 'node'
+  - 'lts/*'
+
+cache:
+  directories:
+    - node_modules
