@@ -8,8 +8,8 @@ Make the development process as fast as possible
 Heavily inspired from [React boilerplate](https://github.com/react-boilerplate/react-boilerplate)
 
 ## Requirements
-  - nodejs
-  - yarn / npm
+  - nodejs v8.10.0 or above
+  - npm v5 or above
 
 ## Browsers are supported
 [Compatible browsers](http://browserl.ist/?q=IE+%3E%3D+9%2C+last+2+versions)
@@ -24,10 +24,10 @@ Heavily inspired from [React boilerplate](https://github.com/react-boilerplate/r
   ```
 
 - Install dependencies:
-  `yarn` or `npm install`
+  `npm install`
 
 - Start developing
-  `yarn dev` or `npm run dev`
+  `npm start`
 
 ## Contributing
 Questions, comments, bug reports and feature requests are all welcome and encouraged.
