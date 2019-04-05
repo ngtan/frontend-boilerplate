@@ -6,7 +6,12 @@ const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 
 const resolvePath = segment => path.resolve(process.cwd(), segment);
+
 const getFiles = segment => glob.sync(resolvePath(segment));
+
+const getScripts = () => getFiles('app/components/**/*.js');
+
+const getStyles = () => getFiles('app/components/**/*.scss');
 
 const getStyleRules = (options) => {
   const cssRules = [
@@ -14,7 +19,6 @@ const getStyleRules = (options) => {
       loader: 'css-loader',
       options: {
         sourceMap: true,
-        minimize: options.mode !== 'development',
       },
     },
     {
@@ -71,9 +75,6 @@ const getHtmlPlugin = (options) => {
   }));
 };
 
-const getScripts = () => getFiles('app/components/**/*.js');
-const getStyles = () => getFiles('app/components/**/*.scss');
-
 module.exports = options => ({
   mode: options.mode,
 
@@ -110,17 +111,13 @@ module.exports = options => ({
       },
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['babel-preset-env'],
+            presets: ['@babel/preset-env'],
           },
         },
-      },
-      {
-        test: /\.modernizrrc$/,
-        use: ['modernizr-loader', 'json-loader'],
       },
       {
         test: /\.(eot|otf|ttf|woff2?)$/,
@@ -199,7 +196,6 @@ module.exports = options => ({
     ],
 
     alias: {
-      modernizr$: resolvePath('.modernizrrc'),
       '@images': resolvePath('app/images'),
     },
   },

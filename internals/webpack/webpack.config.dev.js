@@ -10,6 +10,9 @@ module.exports = require('./webpack.config.base')({
 
   optimization: {
     minimize: false,
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 
   plugins: [
