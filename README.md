@@ -5,8 +5,6 @@
 # frontend-boilerplate
 Make the development process as fast as possible
 
-Heavily inspired from [React boilerplate](https://github.com/react-boilerplate/react-boilerplate)
-
 ## Requirements
   - nodejs v8.10.0 or above
   - npm v5 or above

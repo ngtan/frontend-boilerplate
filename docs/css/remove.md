@@ -13,9 +13,8 @@ To remove `sanitize.css` you will need to remove it from both:
 
 ```diff
 "dependencies": {
-  "babel-polyfill": "6.26.0",
-  "jquery": "3.3.1",
-  "modernizr": "3.6.0",
-- "sanitize.css": "6.0.0"
+  "babel-polyfill": "*",
+  "jquery": "*",
+- "sanitize.css": "*"
 },
 ```

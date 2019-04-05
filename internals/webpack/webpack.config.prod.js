@@ -15,9 +15,7 @@ module.exports = require('./webpack.config.base')({
   },
 
   plugins: [
-    new CleanWebpackPlugin([
-      path.resolve(process.cwd(), 'public'),
-    ], { allowExternal: true }),
+    new CleanWebpackPlugin(),
 
     new WebpackPwaManifest({
       name: 'frontend boilerplate',
