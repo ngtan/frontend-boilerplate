@@ -1,5 +1,4 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = require('./webpack.config.base')({
@@ -15,8 +14,6 @@ module.exports = require('./webpack.config.base')({
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
-
     new WebpackPwaManifest({
       name: 'frontend boilerplate',
       short_name: 'fe boilerplate',
