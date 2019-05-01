@@ -1,8 +1,8 @@
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 
 const resolvePath = segment => path.resolve(process.cwd(), segment);
